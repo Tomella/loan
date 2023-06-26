@@ -1,0 +1,21 @@
+{
+  "name": "loan-app",
+  "version": "0.0.1",
+  "description": "Loan application",
+  "keywords": [
+    "loan",
+    "data"
+  ],
+  "directory": "dist/bower_components",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "LICENCE",
+  "dependencies": {
+    "angular": "~1.7.8"
+  }
+}

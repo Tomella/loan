@@ -1,0 +1,48 @@
+#!/bin/bash
+# curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+# yum -y install nodejs
+# yum install -y gcc-c++ make
+# yum install -y httpd24
+# npm install -g forever
+
+#!/bin/bash
+PROJECT_DIR=/home/loan/loan-app
+HTTP_CONFIG_DIRECTORY=/etc/httpd/conf.d
+PROXY_FILE_NAME=loan.conf
+FSDF_SERVER_FILE_NAME=loan-app
+PROXY_SOURCE=$PROJECT_DIR/code-deploy/$PROXY_FILE_NAME
+PROXY_CONFIG_TARGET=$HTTP_CONFIG_DIRECTORY/$PROXY_FILE_NAME
+FSDF_SERVICE_NAME=loan-app
+FSDF_SERVICE_TARGET=/etc/init.d/$FSDF_SERVICE_NAME
+FSDF_SERVICE_SOURCE=$PROJECT_DIR/code-deploy/loan-app
+
+sudo curl --silent --location https://rpm.nodesource.com/setup_12.x | bash -
+sudo yum -y install nodejs
+# Alternate  way of installing latest nodejs
+# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+# nvm install node
+
+sudo yum install -y gcc-c++ make
+sudo yum install -y httpd24
+sudo yum install -y git
+sudo npm install -g forever
+sudo npm install -g bower
+git clone https://github.com/Tomella/loan-app.git
+cd loan-app
+npm install
+bower install
+
+# Sets up Apache HTTP service
+if [ ! -f "$PROXY_CONFIG_TARGET" ]; then
+   sudo cp "$PROXY_SOURCE" "$HTTP_CONFIG_DIRECTORY"
+fi
+sudo service httpd start
+sudo chkconfig httpd on
+
+# Creates a SYS5 service and autostarts it
+if [ ! -f "$LOAN_APP_SERVICE_TARGET" ]; then
+   sudo cp $LOAN_APP_SERVICE_SOURCE /etc/init.d
+   sudo chmod +x /etc/init.d/$LOAN_APP_SERVICE_NAME
+   sudo service loan-app start
+   sudo chkconfig loan-app on
+fi

@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/loan/loan-app
+forever start --append --spinSleepTime 60000 --uid "loanApp" server.js --public

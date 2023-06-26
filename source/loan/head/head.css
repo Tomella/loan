@@ -1,0 +1,11 @@
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+   .headContainer {
+     margin-left: 200px;
+   }
+ }
+
+ @media only screen and (min-width:1200px) {
+   .headContainer {
+     margin-left: 400px;
+   }
+ }
