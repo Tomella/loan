@@ -88,7 +88,7 @@ export default class LoanTableElement extends HTMLElement {
 
       let interest = new Interest(data);
       this.journal = interest.run().journal;
-      this.$("#payout").innerHTML = dollars( this.journal[this.journal.length -1].balance);
+      this.$("#payout").innerHTML = dollars( -this.journal[this.journal.length -1].balance);
       console.log("After run", this.journal);
 
       let tbody = this.$("tbody");
