@@ -1,6 +1,6 @@
 // Change the data location to the appropriate loan
 // Just pipe the output to a useful location.
-class Interest {
+export default class Interest {
    constructor({name, journal, interest}) {
       this.name = name;
       this.journal = journal;

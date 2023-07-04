@@ -15,20 +15,6 @@
     "type": "git",
     "url": "https://github.com/Tomella/loan-app"
   },
-  "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "add-stream": "^1.0.0",
-    "gulp": "^3.9.1",
-    "gulp-angular-templatecache": "^3.0.0",
-    "gulp-babel": "^7.0.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-concat-css": "^1.2.0",
-    "gulp-header": "^2.0.9",
-    "gulp-jshint": "^2.1.0",
-    "gulp-rename": "^1.4.0",
-    "jshint": "^2.10.2"
-  },
   "bundleDependencies": [],
   "private": true,
   "dependencies": {

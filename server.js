@@ -8,9 +8,9 @@ async function main(con) {
 
    var app = express();
 
-   app.use('/ella', express.static("dist"));
-   app.use('/tom', express.static("dist"));
-   //app.use('/tom', express.static("web"));
+   app.use('/ella', express.static("web"));
+   //app.use('/tom', express.static("dist"));
+   app.use('/tom', express.static("web"));
 
 
    app.get('/ella/data', function (req, res, next) {

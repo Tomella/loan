@@ -32,6 +32,13 @@ export default class FormElement extends HTMLElement {
       const root = this.attachShadow({ mode: 'open' });
       root.appendChild(template.content.cloneNode(true));
 
+
+      let sendEvent = (value) => {
+         this.dispatchEvent(new CustomEvent("change", {
+            detail: {value}
+         }));  
+      }
+
       let interestInput = this.$("input");
       let interestReset = this.$("button");
 
@@ -48,12 +55,6 @@ export default class FormElement extends HTMLElement {
          }
 
       });
-
-      function sendEvent(value) {
-         this.dispatchEvent(new CustomEvent("change", {
-            detail: {value}
-        }));
-      }
    }
 
    connectedCallback() {
