@@ -5,23 +5,13 @@ const mysql = require("mysql");
 const port = 4000;
 
 async function main(con) {
-
    var app = express();
 
-   app.use('/ella', express.static("web"));
-   //app.use('/tom', express.static("dist"));
-   app.use('/tom', express.static("web"));
+   app.use('/:userName', express.static(__dirname + "/web"));
 
-
-   app.get('/ella/data', function (req, res, next) {
-      getData(config.loanId.ella, res);
+   app.get('/:userName/data', function (req, res, next) {
+      getData(config.loanId[req.params.userName], res);
    });
-
-
-   app.get('/tom/data', function (req, res, next) {
-      getData(config.loanId.tom, res);
-   });
-
 
    app.listen(port, function (err) {
       console.log("running server on port " + port);
