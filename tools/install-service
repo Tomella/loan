@@ -6,7 +6,7 @@
 #  * forever installed  > npm install forever -g
 #
 sudo cp /home/loan/loan/tools/loan.service /etc/systemd/system/
-sudo cp /home/lon/loan/tools/loan /sbin
+sudo cp /home/loan/loan/tools/loan /sbin
 sudo chmod 755 /sbin/loan
 sudo chown root:root /sbin/loan
 sudo systemctl enable loan

@@ -2,8 +2,8 @@
 #
 
 # We need environment variables for passwords and the likes
-. /home/loans/.bash_profile
-cd /home/loans
+. /home/loan/.bash_profile
+cd /home/loan
 sleep 10s
 
 if [ ! -d log ]; then
@@ -11,7 +11,7 @@ if [ ! -d log ]; then
 fi
 
 if [ ! -f log/loans.log ]; then
-  touch log/loans.log;
+  touch log/loan.log;
 fi
 
 cd loan
