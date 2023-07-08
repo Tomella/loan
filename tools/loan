@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+
+# We need environment variables for passwords and the likes
+. /home/loans/.bash_profile
+cd /home/loans
+sleep 10s
+
+if [ ! -d log ]; then
+  mkdir -p log;
+fi
+
+if [ ! -f log/loans.log ]; then
+  touch log/loans.log;
+fi
+
+cd loan
+# options
+LOGFILE=/home/loan/log/loan.log
+LOCKFILE=/var/lock/subsys/loan
+FOREVER=/usr/bin/forever
+
+if [ ! -f $FOREVER ]; then
+  FOREVER=/usr/local/bin/forever
+fi
+
+$FOREVER start -a -l $LOGFILE --spinSleepTime 60000 --uid loan server.js

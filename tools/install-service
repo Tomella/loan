@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Don't really expect this to be run but it gives good hints on what to do to create a service.
+# It expects that you have:
+#  * nodejs installed (ver > 14 ) however your operating system suggests it be installed.
+#  * forever installed  > npm install forever -g
+#
+sudo cp /home/loan/loan/tools/loan.service /etc/systemd/system/
+sudo cp /home/lon/loan/tools/loan /sbin
+sudo chmod 755 /sbin/loan
+sudo chown root:root /sbin/loan
+sudo systemctl enable loan
